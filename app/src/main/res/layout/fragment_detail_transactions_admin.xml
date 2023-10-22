@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.user.transactions.DetailTransactionsFragment">
+
+        <RelativeLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.user.cart.CartFragment">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/wave_main"
+                android:padding="@dimen/_10sdp"
+                android:id="@+id/rlHeader"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/baseline_arrow_back_24"
+                    android:backgroundTint="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_toRightOf="@id/btnBack"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transaction Details"
+                        android:fontFamily="@font/popmed"
+                        android:textColor="@color/white"
+                        android:id="@+id/tvnama"
+                        android:textSize="@dimen/_9ssp"/>
+
+                    <TextView
+                        android:id="@+id/tvCodeTransaksi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#MDG--23"
+                        android:fontFamily="@font/popsem"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"/>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_below="@id/rlHeader"
+                android:layout_above="@id/rlBottom"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:id="@+id/lr1"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAddress"
+                            android:padding="@dimen/_10sdp"
+
+                            android:background="@color/main_ligh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Transaction Status"
+                                    android:layout_centerVertical="true"
+                                    android:fontFamily="@font/popsem"
+                                    android:textColor="@color/black2"
+                                    android:textSize="@dimen/_10ssp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Transaction Status"
+                                    android:id="@+id/tvStatus"
+                                    android:layout_centerVertical="true"
+                                    android:fontFamily="@font/popmed"
+                                    android:textColor="@color/black2"
+                                    android:textSize="@dimen/_10ssp"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:id="@+id/lrPenerima"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Package has been received by:"
+                                        android:layout_centerVertical="true"
+                                        android:fontFamily="@font/popsem"
+                                        android:textColor="@color/black2"
+                                        android:textSize="@dimen/_10ssp"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Omender Singh"
+                                        android:id="@+id/tvNamaPenerima"
+                                        android:layout_centerVertical="true"
+                                        android:fontFamily="@font/popmed"
+                                        android:textColor="@color/black2"
+                                        android:textSize="@dimen/_10ssp"/>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+
+
+                        </RelativeLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/lrAlamat"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Shipping address"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Full name"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_7sdp"
+                                android:id="@+id/etNamaLengkap"
+                                android:hint="Full name"
+                                android:enabled="false"
+                                android:fontFamily="@font/popmed"
+                                android:textSize="@dimen/_10ssp"
+                                android:background="@drawable/container_spinner"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="City"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_7sdp"
+                                android:id="@+id/etKota"
+                                android:hint="City"
+                                android:enabled="false"
+                                android:fontFamily="@font/popmed"
+                                android:textSize="@dimen/_10ssp"
+                                android:background="@drawable/container_spinner"/>
+
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phone no."
+                                android:fontFamily="@font/popmed"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_7sdp"
+                                android:id="@+id/etTelepon"
+                                android:enabled="false"
+                                android:hint="Phone no."
+                                android:fontFamily="@font/popmed"
+                                android:textSize="@dimen/_10ssp"
+                                android:inputType="number"
+                                android:background="@drawable/container_spinner"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Postal code"
+                                android:fontFamily="@font/popmed"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_7sdp"
+                                android:id="@+id/etKodePos"
+                                android:hint="Postal code"
+                                android:enabled="false"
+                                android:fontFamily="@font/popmed"
+                                android:textSize="@dimen/_10ssp"
+                                android:inputType="number"
+                                android:background="@drawable/container_spinner"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Address"
+                                android:fontFamily="@font/popmed"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_7sdp"
+                                android:id="@+id/etAlamat"
+                                android:hint="Address"
+                                android:lines="4"
+                                android:gravity="start"
+                                android:enabled="false"
+                                android:fontFamily="@font/popmed"
+                                android:textSize="@dimen/_10ssp"
+                                android:background="@drawable/container_spinner"/>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <View
+                        android:id="@+id/vAlamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@color/main_ligh"
+                        android:layout_below="@id/lr1"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvProduct"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_below="@id/vAlamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lrBody"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_below="@id/rvProduct"
+                        android:orientation="vertical">
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@color/main_ligh"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Payment method"
+                            android:fontFamily="@font/popmed"
+                            android:textColor="@color/main"
+                            android:textSize="@dimen/_10ssp"/>
+
+                        <TextView
+                            android:id="@+id/tvMetodePembayaran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Payment method"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:fontFamily="@font/popmed"
+                            android:textColor="@color/black2"
+                            android:textSize="@dimen/_9ssp"/>
+
+                        <ImageView
+                            android:id="@+id/ivBukti"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"/>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:id="@+id/lrProdukDibawah100"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@color/main_ligh"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:text="Location for picking up goods"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Online Deal app, Najafgarh ,New Delhi - 110043 ,Delhi, India"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_9ssp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:id="@+id/lrProdukDiatas100"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@color/main_ligh"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:text="Announcement"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/_10ssp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Due to product purchases of more than 100 pcs, the product will be sent by us to the address listed above and free of charge."
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_9ssp"/>
+
+                        </LinearLayout>
+
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@color/main_ligh"/>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="Payment details"
+                            android:fontFamily="@font/popmed"
+                            android:textColor="@color/main"
+                            android:textSize="@dimen/_10ssp"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Number of Items"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_9ssp"/>
+
+                            <TextView
+                                android:id="@+id/tvJumlahProduk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_9ssp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="item of weight"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_9ssp"/>
+
+                            <TextView
+                                android:id="@+id/tvBeratBarang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_9ssp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total payment"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/black2"
+                                android:textSize="@dimen/_10ssp"/>
+
+                            <TextView
+                                android:id="@+id/tvNominal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/popmed"
+                                android:textColor="@color/main"
+                                android:textSize="@dimen/_11ssp"/>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/rlBottom"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/main"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPesan"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:text="Pay Now"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/btnPesan"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/popmed"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/black2"
+                            android:text="Total payment"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvTotalPembayaran"
+                            android:fontFamily="@font/popsem"
+                            android:textSize="@dimen/_11ssp"
+                            android:textColor="@color/main"
+                            android:text="-"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No product"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:fontFamily="@font/popmed"
+                android:textColor="@color/light_gray"
+                android:textSize="@dimen/_10ssp"/>
+
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
