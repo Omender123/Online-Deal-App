@@ -15,8 +15,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:id="@+id/iv_product"
-
-            android:scaleType="centerCrop"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitXY"
             android:layout_height="@dimen/_300sdp"/>
 
         <ImageButton
@@ -38,6 +40,7 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:layout_above="@id/btnCart"
                 android:layout_height="match_parent">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -105,7 +108,7 @@
                 android:layout_width="match_parent"
                 app:cornerRadius="@dimen/_10sdp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 app:icon="@drawable/baseline_shopping_cart_24"
                 android:layout_height="wrap_content"
                 android:text="Add to Cart"/>

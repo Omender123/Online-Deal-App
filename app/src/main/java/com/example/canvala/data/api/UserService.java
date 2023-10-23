@@ -2,6 +2,7 @@ package com.example.canvala.data.api;
 
 import com.airbnb.lottie.L;
 import com.example.canvala.data.model.CartModel;
+import com.example.canvala.data.model.CategoriesModel;
 import com.example.canvala.data.model.InformationModel;
 import com.example.canvala.data.model.ProductModel;
 import com.example.canvala.data.model.RekeningModel;
@@ -130,5 +131,7 @@ public interface UserService {
             @Query("trans_id") String transId
     );
 
+    @GET("user/getCategories")
+    Call<List<CategoriesModel>> getCategories();
 
 }

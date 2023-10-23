@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingTop="@dimen/_10sdp"
+    android:paddingBottom="@dimen/_10sdp"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/_5sdp"
+    android:paddingEnd="@dimen/_5sdp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#C4E2C6"
+        app:cardCornerRadius="@dimen/_10sdp">
+        <TextView
+            android:id="@+id/txt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="2"
+            android:text="MO"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:fontFamily="@font/popsem"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/main"/>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/txt_cate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/popmed"
+        android:text="Mobile"
+        android:textSize="@dimen/_9ssp"/>
+
+</LinearLayout>

@@ -42,4 +42,13 @@ public class CategoriesModel implements Serializable {
     public void setSlug(String slug) {
         this.slug = slug;
     }
+
+    @Override
+    public String toString() {
+        return "CategoriesModel{" +
+                "id='" + id + '\'' +
+                ", categoryName='" + categoryName + '\'' +
+                ", slug='" + slug + '\'' +
+                '}';
+    }
 }

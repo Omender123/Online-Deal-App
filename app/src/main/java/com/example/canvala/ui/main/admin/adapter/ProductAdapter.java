@@ -88,6 +88,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .fitCenter()
                 .centerInside()
+
                 .skipMemoryCache(true)
                 .into(holder.ivProduct);
     }

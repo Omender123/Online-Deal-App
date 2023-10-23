@@ -64,7 +64,7 @@ public class DetailProductFragment extends Fragment {
         Glide.with(getContext())
                 .load(getArguments().getString("image"))
                 .skipMemoryCache(true)
-                .centerCrop()
+                //.centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(binding.ivProduct);
 

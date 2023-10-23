@@ -97,77 +97,16 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp"/>
 
-                    <LinearLayout
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_10sdp"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <ImageButton
-                                android:id="@+id/btnKecil"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_gravity="center"
-                                android:layout_height="@dimen/_40sdp"
-                                android:background="@drawable/ic_kecil"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:textColor="@color/black"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:fontFamily="@font/popmed"
-                                android:text="Small"
-                                android:textSize="@dimen/_9ssp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_15sdp"
-                            android:orientation="vertical">
-                            <ImageButton
-                                android:id="@+id/btnSedang"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_gravity="center"
-                                android:layout_height="@dimen/_40sdp"
-                                android:background="@drawable/ic_sedang"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:fontFamily="@font/popmed"
-                                android:text="medium"
-                                android:textSize="@dimen/_9ssp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_15sdp"
-                            android:orientation="vertical">
-                            <ImageButton
-                                android:id="@+id/btnBesar"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_gravity="center"
-                                android:layout_height="@dimen/_40sdp"
-                                android:background="@drawable/ic_besar"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:fontFamily="@font/popmed"
-                                android:text="Big"
-                                android:textSize="@dimen/_9ssp"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="horizontal"
+                        tools:listitem="@layout/custom_layout_category"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_8sdp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
