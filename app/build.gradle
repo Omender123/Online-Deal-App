@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.canvala'
+    namespace 'com.example.onlinedealapp'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.canvala"
+        applicationId "com.example.onlinedealapp"
         minSdk 24
         targetSdk 34
         versionCode 1
