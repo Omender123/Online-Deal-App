@@ -13,19 +13,19 @@ import com.example.onlinedealapp.data.model.CategoriesModel;
 import com.example.onlinedealapp.databinding.CustomLayoutCategoryBinding;
 
 import java.util.List;
-public class Categories_Adapter extends RecyclerView.Adapter<Categories_Adapter.ViewHolder>  {
+
+public class Categories_Adapter extends RecyclerView.Adapter<Categories_Adapter.ViewHolder> {
 
     Context context;
-    List<CategoriesModel>allCategoriesResponses;
-    private  OnCategoriesItemListener onCategoriesItemListener;
-
+    List<CategoriesModel> allCategoriesResponses;
+    private OnCategoriesItemListener onCategoriesItemListener;
 
 
     public void setOnButtonClickListener(OnCategoriesItemListener onCategoriesItemListener) {
         this.onCategoriesItemListener = onCategoriesItemListener;
     }
 
-    public Categories_Adapter(Context context, List<CategoriesModel>allCategoriesResponses) {
+    public Categories_Adapter(Context context, List<CategoriesModel> allCategoriesResponses) {
         this.context = context;
         this.allCategoriesResponses = allCategoriesResponses;
     }
@@ -51,7 +51,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<Categories_Adapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onCategoriesItemListener.onCategoriesItemClickListener(allCategoriesResponses,position);
+                onCategoriesItemListener.onCategoriesItemClickListener(allCategoriesResponses, position);
             }
         });
 
@@ -65,7 +65,7 @@ public class Categories_Adapter extends RecyclerView.Adapter<Categories_Adapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         CustomLayoutCategoryBinding binding;
 
-        public ViewHolder( CustomLayoutCategoryBinding binding) {
+        public ViewHolder(CustomLayoutCategoryBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 

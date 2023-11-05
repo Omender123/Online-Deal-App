@@ -42,15 +42,13 @@ public class ProfileFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentProfileBinding.inflate(inflater, container, false);
-        sharedPreferences= getContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        sharedPreferences = getContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         userService = ApiConfig.getClient(requireContext()).create(UserService.class);
         userId = sharedPreferences.getString(Constants.SHARED_PREF_USER_ID, null);
         editor = sharedPreferences.edit();
-
 
 
         return binding.getRoot();
@@ -86,27 +84,27 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    binding.tvNama.setText("Hai, " +response.body().getName());
+                    binding.tvNama.setText("Hai, " + response.body().getName());
                     nama = response.body().getName();
                     email = response.body().getEmail();
                     telepon = response.body().getPhoneNumber();
                     kodePos = response.body().getPostalCode();
-                    showProgressBar("dsds", "Sdsd",false);
-                }else {
-                    showProgressBar("dsds", "Sdsd",false);
+                    showProgressBar("dsds", "Sdsd", false);
+                } else {
+                    showProgressBar("dsds", "Sdsd", false);
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                showProgressBar("dsds", "Sdsd",false);
+                showProgressBar("dsds", "Sdsd", false);
                 showToast("error", "No internet connection");
 
             }
         });
     }
 
-    private void updateProfile(){
+    private void updateProfile() {
         Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.layout_ubah_profile);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -132,17 +130,15 @@ public class ProfileFragment extends Fragment {
                 if (etNama.getText().toString().isEmpty()) {
                     etNama.setError("Name cannot be empty");
                     etNama.requestFocus();
-                }else  if (etTelepon.getText().toString().isEmpty()) {
+                } else if (etTelepon.getText().toString().isEmpty()) {
                     etTelepon.setError("Phone no. cannot be empty");
                     etTelepon.requestFocus();
-                }else  if (etKodePos.getText().toString().isEmpty()) {
+                } else if (etKodePos.getText().toString().isEmpty()) {
                     etKodePos.setError("Postal code cannot be empty");
                     etKodePos.requestFocus();
-                }else {
+                } else {
                     showProgressBar("Loding", "Save profile...", true);
-                    userService.updateProfile(
-                            userId, etPassword.getText().toString(), etNama.getText().toString(), etTelepon.getText().toString(), etKodePos.getText().toString()
-                    ).enqueue(new Callback<ResponseModel>() {
+                    userService.updateProfile(userId, etPassword.getText().toString(), etNama.getText().toString(), etTelepon.getText().toString(), etKodePos.getText().toString()).enqueue(new Callback<ResponseModel>() {
                         @Override
                         public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                             if (response.isSuccessful() && response.body().getStatus() == 200) {
@@ -150,7 +146,7 @@ public class ProfileFragment extends Fragment {
                                 showProgressBar("ds", "sd", false);
                                 getProfile();
                                 showToast("success", "Successfully changed profile");
-                            }else {
+                            } else {
                                 showProgressBar("ds", "sd", false);
                                 showToast("error", "Failed to change profile");
                             }
@@ -166,9 +162,6 @@ public class ProfileFragment extends Fragment {
                 }
             }
         });
-
-
-
 
 
         btnBatal.setOnClickListener(new View.OnClickListener() {
@@ -198,10 +191,11 @@ public class ProfileFragment extends Fragment {
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(getContext(), text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(getContext(), text, Toasty.LENGTH_SHORT).show();
         }
     }

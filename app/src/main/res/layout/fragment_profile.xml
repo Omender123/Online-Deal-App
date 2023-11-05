@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    android:background="@color/white"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@color/white">
 
-    <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.main.user.profile.ProfileFragment">
@@ -14,9 +12,10 @@
         <RelativeLayout
             android:id="@+id/rlHeader"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/wave_main"
-            android:padding="@dimen/_10sdp"
-            android:layout_height="wrap_content">
+            android:padding="@dimen/_10sdp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -25,18 +24,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_25sdp"
-                    android:text="Profile"
                     android:fontFamily="@font/popsem"
-                    android:textColor="@color/white"/>
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_25sdp" />
 
                 <TextView
                     android:id="@+id/tvNama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_11sdp"
                     android:fontFamily="@font/popmed"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -45,28 +44,27 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUbahProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:backgroundTint="@color/white"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:text="Change profile"
                         android:textColor="@color/main"
-                        android:id="@+id/btnUbahProfile"
-                        android:text="Change profile"/>
+                        app:backgroundTint="@color/white" />
 
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLogOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:textColor="@color/red"
                         app:backgroundTint="@color/white"
                         app:icon="@drawable/baseline_logout_24"
-                        app:iconTint="@color/red"
-                        android:id="@+id/btnLogOut"
-                        android:textColor="@color/red"
-                        android:text="Logout"/>
+                        app:iconTint="@color/red" />
                 </LinearLayout>
 
             </LinearLayout>
-
 
 
         </RelativeLayout>
@@ -74,13 +72,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Created by Omender Singh"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/_20sdp"
             android:fontFamily="@font/popmed"
+            android:text="Created by Shivam Gupta"
             android:textColor="@color/main"
-            android:textSize="@dimen/_11ssp"/>
+            android:textSize="@dimen/_11ssp" />
 
 
     </RelativeLayout>

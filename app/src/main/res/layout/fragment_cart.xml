@@ -322,7 +322,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/popmed"
-                            android:text="Online Deal App, Sohana Road ,Gurugram ,Haryana"
+                            android:text="online Purchase App, Sohana Road ,Gurugram ,Haryana"
                             android:textColor="@color/black2"
                             android:textSize="@dimen/_9ssp" />
 

@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Online Deal App"
+            android:text="online Purchase App"
             android:fontFamily="@font/popsem"
             android:layout_gravity="center"
             android:textColor="@color/white"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Created by Omender Singh"
+        android:text="Created by Shivam Gupta"
         android:fontFamily="@font/popmed"
         android:layout_gravity="center"
         android:textColor="@color/white"

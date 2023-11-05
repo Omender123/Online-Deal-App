@@ -42,9 +42,9 @@ public class TransactionsFragment extends Fragment {
     String userId;
 
     private FragmentTransactionsBinding binding;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentTransactionsBinding.inflate(inflater, container, false);
         sharedPreferences = getContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -100,7 +100,7 @@ public class TransactionsFragment extends Fragment {
                     binding.rvTransactions.setAdapter(transactionsAdapter);
                     binding.rvTransactions.setHasFixedSize(true);
                     showProgressBar("sd", "dssd", false);
-                }else {
+                } else {
                     binding.tvEmpty.setVisibility(View.VISIBLE);
                     showProgressBar("adss", "sdsd", false);
                 }
@@ -135,10 +135,11 @@ public class TransactionsFragment extends Fragment {
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(getContext(), text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(getContext(), text, Toasty.LENGTH_SHORT).show();
         }
     }
@@ -153,7 +154,7 @@ public class TransactionsFragment extends Fragment {
             transactionsAdapter.filter(filteredList);
             if (filteredList.isEmpty()) {
 
-            }else {
+            } else {
                 transactionsAdapter.filter(filteredList);
             }
         }

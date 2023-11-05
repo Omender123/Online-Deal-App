@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:background="@color/white"
         android:layout_height="match_parent"
         tools:context=".ui.main.user.transactions.DetailTransactionsFragment">
 
         <RelativeLayout
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.main.user.cart.CartFragment">
@@ -125,14 +123,14 @@
                                         android:textSize="@dimen/_10ssp"/>
 
                                     <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Omender Singh"
                                         android:id="@+id/tvNamaPenerima"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="11dp"
                                         android:layout_centerVertical="true"
                                         android:fontFamily="@font/popmed"
+                                        android:text="Shivam Gupta"
                                         android:textColor="@color/black2"
-                                        android:textSize="@dimen/_10ssp"/>
+                                        android:textSize="@dimen/_10ssp" />
                                 </LinearLayout>
 
 
@@ -362,7 +360,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Online Deal app, Najafgarh ,New Delhi - 110043 ,Delhi, India"
+                                android:text="online Purchase App, Najafgarh ,New Delhi - 110043 ,Delhi, India"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="@font/popmed"
                                 android:textColor="@color/black2"

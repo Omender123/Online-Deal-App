@@ -17,5 +17,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Online Deal App"
+rootProject.name = "online Purchase App"
 include ':app'

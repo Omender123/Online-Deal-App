@@ -64,13 +64,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         String price = decimalFormat.format(cartModelList.get(holder.getAdapterPosition()).getTotal());
         holder.tvHarga.setText("Rs. " + price);
 
-        Glide.with(context)
-                .load(cartModelList.get(holder.getAdapterPosition()).getPhotos())
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .centerCrop()
-                .centerInside()
-                .skipMemoryCache(true)
-                .into(holder.ivProduct);
+        Glide.with(context).load(cartModelList.get(holder.getAdapterPosition()).getPhotos()).diskCacheStrategy(DiskCacheStrategy.NONE).centerCrop().centerInside().skipMemoryCache(true).into(holder.ivProduct);
 
     }
 
@@ -88,6 +82,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         TextView tvNamaProduct, tvJumlah, tvHarga;
         ImageView ivProduct;
         ImageButton btnDelete;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProduct = itemView.findViewById(R.id.ivProduct);
@@ -105,11 +100,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     showProgressBar("Loading", "Deleting a product...", false);
-                    userService.deleteCart(
-                            cartModelList.get(getAdapterPosition()).getCartId(),
-                            cartModelList.get(getAdapterPosition()).getProductId(),
-                            cartModelList.get(getAdapterPosition()).getQuantity()
-                    ).enqueue(new Callback<ResponseModel>() {
+                    userService.deleteCart(cartModelList.get(getAdapterPosition()).getCartId(), cartModelList.get(getAdapterPosition()).getProductId(), cartModelList.get(getAdapterPosition()).getQuantity()).enqueue(new Callback<ResponseModel>() {
                         @Override
                         public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                             if (response.isSuccessful() && response.body().getStatus() == 200) {
@@ -121,7 +112,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                                 notifyDataSetChanged();
                                 showToast("success", "Successfully deleted the product");
 
-                            }else {
+                            } else {
                                 showToast("error", "There is an error");
                                 showProgressBar("sds", "Sds", false);
 
@@ -161,10 +152,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(context, text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(context, text, Toasty.LENGTH_SHORT).show();
         }
     }

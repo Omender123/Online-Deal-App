@@ -45,10 +45,8 @@ public class ProductKategoriFragment extends Fragment implements ProductAdapter.
     private String nama, userId;
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentProductCategoryBinding.inflate(inflater, container, false);
         sharedPreferences = getContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -57,13 +55,12 @@ public class ProductKategoriFragment extends Fragment implements ProductAdapter.
 
         if (getArguments().getString("id").equals("1")) {
             binding.tvCategory.setText("Small Canvas Category");
-        }else  if (getArguments().getString("id").equals("2")) {
+        } else if (getArguments().getString("id").equals("2")) {
             binding.tvCategory.setText("Medium Canvas Category");
-        } if (getArguments().getString("id").equals("3")) {
+        }
+        if (getArguments().getString("id").equals("3")) {
             binding.tvCategory.setText("Large Canvas Category");
         }
-
-
 
 
         return binding.getRoot();
@@ -113,14 +110,14 @@ public class ProductKategoriFragment extends Fragment implements ProductAdapter.
                     binding.rvProduct.setAdapter(productAdapter);
                     binding.rvProduct.setHasFixedSize(true);
                     showProgressBar("sdd", "dsd", false);
-                }else {
-                    showProgressBar("sdsd","sds", false);
+                } else {
+                    showProgressBar("sdsd", "sds", false);
                 }
             }
 
             @Override
             public void onFailure(Call<List<ProductModel>> call, Throwable t) {
-                showProgressBar("sdsd","sds", false);
+                showProgressBar("sdsd", "sds", false);
                 showToast("error", "No internet connection");
 
             }
@@ -139,13 +136,12 @@ public class ProductKategoriFragment extends Fragment implements ProductAdapter.
             productAdapter.filter(filteredList);
             if (filteredList.isEmpty()) {
 
-            }else {
+            } else {
                 productAdapter.filter(filteredList);
             }
         }
 
     }
-
 
 
     public void getTotalCart() {
@@ -156,7 +152,7 @@ public class ProductKategoriFragment extends Fragment implements ProductAdapter.
                 if (response.isSuccessful() && response.body().size() > 0) {
                     binding.tvTotalNotif.setText(String.valueOf(response.body().size()));
                     showProgressBar("sds", "sdsd", false);
-                }else {
+                } else {
                     binding.tvTotalNotif.setText("0");
                     showProgressBar("sds", "sdsd", false);
 
@@ -192,17 +188,17 @@ public class ProductKategoriFragment extends Fragment implements ProductAdapter.
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(getContext(), text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(getContext(), text, Toasty.LENGTH_SHORT).show();
         }
     }
 
     private void replace(Fragment fragment) {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameUsers, fragment).addToBackStack(null).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameUsers, fragment).addToBackStack(null).commit();
     }
 
     @Override

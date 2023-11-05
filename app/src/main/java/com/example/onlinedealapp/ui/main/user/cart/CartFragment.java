@@ -49,7 +49,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
     LinearLayoutManager linearLayoutManager;
     UserService userService;
     SpinnerRekeningAdapter spinnerRekeningAdapter;
-    String [] opsiKota = {"New Delhi", "Delhi NCR"};
+    String[] opsiKota = {"New Delhi", "Delhi NCR"};
     String userId;
     SharedPreferences sharedPreferences;
     AlertDialog progressDialog;
@@ -57,10 +57,8 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
     String kota, rekening;
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentCartBinding.inflate(inflater, container, false);
         sharedPreferences = getContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -73,7 +71,6 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
 
         return binding.getRoot();
     }
-
 
 
     @Override
@@ -150,13 +147,13 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
                 if (binding.etAlamat.getText().toString().isEmpty()) {
                     binding.etAlamat.setError("The address cannot be empty");
                     binding.etAlamat.requestFocus();
-                }else if (binding.etTelepon.getText().toString().isEmpty()) {
+                } else if (binding.etTelepon.getText().toString().isEmpty()) {
                     binding.etTelepon.setError("The phone cannot be empty");
                     binding.etTelepon.requestFocus();
-                }else if (binding.etKodePos.getText().toString().isEmpty()) {
+                } else if (binding.etKodePos.getText().toString().isEmpty()) {
                     binding.etKodePos.setError("Postal Code cannot be empty");
                     binding.etKodePos.requestFocus();
-                }else {
+                } else {
                     updateAlamat();
                 }
             }
@@ -169,12 +166,10 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
                     binding.lrAlamat.setVisibility(View.VISIBLE);
                     binding.etAlamat.setError("The address cannot be empty");
                     binding.etTelepon.requestFocus();
-                }else if (kota == null) {
+                } else if (kota == null) {
                     binding.lrAlamat.setVisibility(View.VISIBLE);
                     showToast("error", "The city cannot be empty");
-                }
-
-                else {
+                } else {
                     checkOut();
                 }
             }
@@ -199,7 +194,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
                     binding.btnPesan.setEnabled(true);
                     binding.lrBody.setVisibility(View.VISIBLE);
                     showProgressBar("adasd", "ssds", false);
-                }else {
+                } else {
                     showProgressBar("Sds", "dsd", false);
                     binding.tvEmpty.setVisibility(View.VISIBLE);
                     binding.btnPesan.setVisibility(View.GONE);
@@ -236,7 +231,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
                     binding.spPembayaran.setAdapter(spinnerRekeningAdapter);
                     showProgressBar("sds", "sds", false);
                     binding.btnPesan.setEnabled(true);
-                }else {
+                } else {
                     showProgressBar("sds", "sds", false);
                     binding.btnPesan.setEnabled(false);
                     showToast("d", "Unable to load payment method");
@@ -273,10 +268,11 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(getContext(), text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(getContext(), text, Toasty.LENGTH_SHORT).show();
         }
     }
@@ -291,7 +287,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
             cartAdapter.filter(filteredList);
             if (filteredList.isEmpty()) {
 
-            }else {
+            } else {
                 cartAdapter.filter(filteredList);
             }
         }
@@ -312,15 +308,15 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
 
                     binding.etTelepon.setText(response.body().getPhoneNumber());
                     binding.etKodePos.setText(response.body().getPostalCode());
-                    showProgressBar("dsds", "Sdsd",false);
-                }else {
-                    showProgressBar("dsds", "Sdsd",false);
+                    showProgressBar("dsds", "Sdsd", false);
+                } else {
+                    showProgressBar("dsds", "Sdsd", false);
                 }
             }
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
-                showProgressBar("dsds", "Sdsd",false);
+                showProgressBar("dsds", "Sdsd", false);
                 showToast("error", "No internet connection");
 
             }
@@ -343,13 +339,13 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
                     totalPrice = response.body().getHargaTotal();
 
                     // sembunyikan
-                    if (response.body().getQty() <= 99){
+                    if (response.body().getQty() <= 99) {
                         binding.lrProdukDibawah100.setVisibility(View.VISIBLE);
-                    }else if (response.body().getQty() >= 100) {
+                    } else if (response.body().getQty() >= 100) {
                         binding.lrProdukDiatas100.setVisibility(View.VISIBLE);
                     }
                     showProgressBar("sds", "Sd", false);
-                }else {
+                } else {
                     showProgressBar("sds", "Sd", false);
                     showToast("er", "Failed to load purchase information");
                     binding.btnPesan.setEnabled(false);
@@ -381,12 +377,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
 
     private void updateAlamat() {
         showProgressBar("Loading", "Saving changes...", true);
-        userService.updateAlamat(
-                userId,
-                binding.etAlamat.getText().toString(),
-                binding.etTelepon.getText().toString(),
-                binding.etKodePos.getText().toString()
-        ).enqueue(new Callback<ResponseModel>() {
+        userService.updateAlamat(userId, binding.etAlamat.getText().toString(), binding.etTelepon.getText().toString(), binding.etKodePos.getText().toString()).enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if (response.isSuccessful() && response.body().getStatus() == 200) {
@@ -394,7 +385,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
                     showToast("success", "Successfully changed address");
                     getProfile();
 
-                }else {
+                } else {
                     showProgressBar("sd", "Sds", false);
                     showToast("error", "There is an error");
                 }
@@ -412,22 +403,15 @@ public class CartFragment extends Fragment implements CartAdapter.OnButtonClickL
     private void checkOut() {
 
         showProgressBar("Loading", "Transaction process", true);
-        userService.checkOut(
-                userId,
-                totalPrice,
-                kota,
-                Integer.parseInt(rekening),
-                weightTotal
-        ).enqueue(new Callback<ResponseModel>() {
+        userService.checkOut(userId, totalPrice, kota, Integer.parseInt(rekening), weightTotal).enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if (response.isSuccessful() && response.body().getStatus() == 200) {
                     showProgressBar("sds", "dssd", false);
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frameUsers, new TransactionsFragment()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameUsers, new TransactionsFragment()).commit();
                     showToast("success", "Successfully created a new order");
 
-                }else {
+                } else {
                     showProgressBar("Dsd", "sdsd", false);
                     showToast("error", "Failed to place order");
 

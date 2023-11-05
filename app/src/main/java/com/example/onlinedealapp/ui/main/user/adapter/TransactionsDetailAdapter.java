@@ -82,6 +82,7 @@ public class TransactionsDetailAdapter extends RecyclerView.Adapter<Transactions
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvNamaProduct, tvJumlah, tvHarga;
         ImageView ivProduct;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProduct = itemView.findViewById(R.id.ivProduct);
@@ -114,10 +115,11 @@ public class TransactionsDetailAdapter extends RecyclerView.Adapter<Transactions
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(context, text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(context, text, Toasty.LENGTH_SHORT).show();
         }
     }

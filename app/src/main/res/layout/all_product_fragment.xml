@@ -45,7 +45,7 @@
                     <androidx.appcompat.widget.SearchView
                         android:layout_width="match_parent"
                         android:layout_marginTop="@dimen/_5sdp"
-                        app:queryHint="Search for Online Deal App"
+                        app:queryHint="Search for online Purchase App"
                         android:id="@+id/searchBar"
                         app:iconifiedByDefault="false"
                         android:background="@drawable/container_searchview"

@@ -47,10 +47,8 @@ public class DetailProductFragment extends Fragment {
     String userId;
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentDetailProductBinding.inflate(inflater, container, false);
         productId = getArguments().getString("product_id");
@@ -59,12 +57,9 @@ public class DetailProductFragment extends Fragment {
         userService = ApiConfig.getClient(requireContext()).create(UserService.class);
         userId = sharedPreferences.getString(Constants.SHARED_PREF_USER_ID, null);
 
-        Glide.with(getContext())
-                .load(getArguments().getString("image"))
-                .skipMemoryCache(true)
+        Glide.with(getContext()).load(getArguments().getString("image")).skipMemoryCache(true)
                 //.centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(binding.ivProduct);
+                .diskCacheStrategy(DiskCacheStrategy.NONE).into(binding.ivProduct);
 
 
         String replacedString = getArguments().getString("detail").replaceAll("<p>|</p>|&nbsp;|\n", "");
@@ -109,13 +104,7 @@ public class DetailProductFragment extends Fragment {
                 etQty.requestFocus();
 
 
-                Glide.with(getContext())
-                        .load(getArguments().getString("image"))
-                        .diskCacheStrategy(DiskCacheStrategy.NONE)
-                        .fitCenter()
-                        .centerInside()
-                        .skipMemoryCache(true)
-                        .into(ivProduct);
+                Glide.with(getContext()).load(getArguments().getString("image")).diskCacheStrategy(DiskCacheStrategy.NONE).fitCenter().centerInside().skipMemoryCache(true).into(ivProduct);
 
                 DecimalFormat decimalFormat = new DecimalFormat("#,##0");
                 String price = decimalFormat.format(getArguments().getInt("price"));
@@ -137,14 +126,12 @@ public class DetailProductFragment extends Fragment {
                             btnMasukkan.setEnabled(false);
                             showToast("error", "Invalid amount");
 
-                        }else if (etQty.getText().toString().isEmpty()) {
+                        } else if (etQty.getText().toString().isEmpty()) {
                             btnMasukkan.setEnabled(false);
-                        }else if (Integer.parseInt(etQty.getText().toString()) < 1) {
+                        } else if (Integer.parseInt(etQty.getText().toString()) < 1) {
                             showToast("error", "Invalid amount");
                             btnMasukkan.setEnabled(false);
-                        }
-
-                        else {
+                        } else {
                             // kalikan qty dengan harga
                             int qty = Integer.parseInt(etQty.getText().toString());
                             int price = getArguments().getInt("price");
@@ -166,12 +153,8 @@ public class DetailProductFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-                            showProgressBar("Loading", "Check product stock...", true);
-                        userService.addProductToCart(
-                                Integer.parseInt(etQty.getText().toString()),
-                                userId,
-                                getArguments().getString("product_id")
-                        ).enqueue(new Callback<ResponseModel>() {
+                        showProgressBar("Loading", "Check product stock...", true);
+                        userService.addProductToCart(Integer.parseInt(etQty.getText().toString()), userId, getArguments().getString("product_id")).enqueue(new Callback<ResponseModel>() {
                             @Override
                             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
 
@@ -182,7 +165,7 @@ public class DetailProductFragment extends Fragment {
                                     dialog.dismiss();
 
                                     showToast("success", "Product added successfully");
-                                }else {
+                                } else {
                                     showToast("error", response.body().getMessage());
                                     showProgressBar("sdd", "Sdsd", false);
                                 }
@@ -198,9 +181,6 @@ public class DetailProductFragment extends Fragment {
                         });
                     }
                 });
-
-
-
 
 
             }
@@ -225,10 +205,11 @@ public class DetailProductFragment extends Fragment {
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(getContext(), text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(getContext(), text, Toasty.LENGTH_SHORT).show();
         }
     }

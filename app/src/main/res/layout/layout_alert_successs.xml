@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        app:cardCornerRadius="@dimen/_20sdp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_20sdp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_20sdp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp">
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/sad_animation"
@@ -25,27 +25,28 @@
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/success_anim2" />
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Success"
-                android:fontFamily="@font/popsem"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:textColor="@color/main"
-                android:textSize="@dimen/_13sdp"
-                android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:id="@+id/tvMessageAlert"
-                android:text="You have successfully uploaded proof of payment, please wait for confirmation of your proof of payment."
-                android:fontFamily="@font/popmed"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/popsem"
                 android:gravity="center"
+                android:text="Success"
+                android:textColor="@color/main"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/tvMessageAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/popmed"
+                android:gravity="center"
+                android:text="You have successfully uploaded proof of payment, please wait for confirmation of your proof of payment."
                 android:textColor="@color/black2"
-                android:textSize="@dimen/_9sdp"
-                android:layout_height="wrap_content"/>
+                android:textSize="@dimen/_9sdp" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -53,15 +54,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                app:backgroundTint="@color/main"
-                android:text="ok"/>
-
-
+                android:text="ok"
+                app:backgroundTint="@color/main" />
 
 
         </LinearLayout>
-
-
 
 
     </androidx.cardview.widget.CardView>

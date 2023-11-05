@@ -20,7 +20,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapter.ViewHolder>  {
+public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapter.ViewHolder> {
     Context context;
     List<TransactionsModel> transactionsModelList;
 
@@ -32,23 +32,23 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
     @NonNull
     @Override
     public TransactionsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(context).inflate(R.layout.list_transactions, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_transactions, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TransactionsAdapter.ViewHolder holder, int position) {
         holder.tvDate.setText(transactionsModelList.get(holder.getAdapterPosition()).getCreatedAt());
-     //   holder.tvStatus.setText(transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus());
+        //   holder.tvStatus.setText(transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus());
         holder.tvCodeTrans.setText(transactionsModelList.get(holder.getAdapterPosition()).getCode());
 
         if (transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus().equals("TERKONFIRMASI")) {
             holder.tvStatus.setTextColor(context.getColor(R.color.yellow));
             holder.tvStatus.setText("CONFIRMED");
-        }else  if (transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus().equals("BELUM TERKONFIRMASI")) {
+        } else if (transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus().equals("BELUM TERKONFIRMASI")) {
             holder.tvStatus.setTextColor(context.getColor(R.color.red));
             holder.tvStatus.setText("NOT CONFIRMED YET");
-        }else  if (transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus().equals("TERKIRIM")) {
+        } else if (transactionsModelList.get(holder.getAdapterPosition()).getTransactionStatus().equals("TERKIRIM")) {
             holder.tvStatus.setTextColor(context.getColor(R.color.main));
             holder.tvStatus.setText("SENT");
         }
@@ -64,18 +64,18 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
         return transactionsModelList.size();
     }
 
-    public void filter(ArrayList<TransactionsModel> filteredList){
+    public void filter(ArrayList<TransactionsModel> filteredList) {
         transactionsModelList = filteredList;
         notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvCodeTrans , tvStatus, tvPrice, tvDate;
+        TextView tvCodeTrans, tvStatus, tvPrice, tvDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvCodeTrans = itemView.findViewById(R.id.tvCodeTransactions);
-            tvStatus  = itemView.findViewById(R.id.tvStatus);
+            tvStatus = itemView.findViewById(R.id.tvStatus);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvPrice = itemView.findViewById(R.id.tvTotal);
 

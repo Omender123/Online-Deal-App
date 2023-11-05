@@ -45,17 +45,13 @@ public class AllProductFragment extends Fragment implements ProductAdapter.OnBut
     private String nama, userId;
 
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = AllProductFragmentBinding.inflate(inflater, container, false);
         sharedPreferences = getContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
         userService = ApiConfig.getClient(requireContext()).create(UserService.class);
         userId = sharedPreferences.getString(Constants.SHARED_PREF_USER_ID, null);
-
-
 
 
         return binding.getRoot();
@@ -105,14 +101,14 @@ public class AllProductFragment extends Fragment implements ProductAdapter.OnBut
                     binding.rvProduct.setAdapter(productAdapter);
                     binding.rvProduct.setHasFixedSize(true);
                     showProgressBar("sdd", "dsd", false);
-                }else {
-                    showProgressBar("sdsd","sds", false);
+                } else {
+                    showProgressBar("sdsd", "sds", false);
                 }
             }
 
             @Override
             public void onFailure(Call<List<ProductModel>> call, Throwable t) {
-                showProgressBar("sdsd","sds", false);
+                showProgressBar("sdsd", "sds", false);
                 showToast("error", "No internet connection");
 
             }
@@ -131,13 +127,12 @@ public class AllProductFragment extends Fragment implements ProductAdapter.OnBut
             productAdapter.filter(filteredList);
             if (filteredList.isEmpty()) {
 
-            }else {
+            } else {
                 productAdapter.filter(filteredList);
             }
         }
 
     }
-
 
 
     public void getTotalCart() {
@@ -148,7 +143,7 @@ public class AllProductFragment extends Fragment implements ProductAdapter.OnBut
                 if (response.isSuccessful() && response.body().size() > 0) {
                     binding.tvTotalNotif.setText(String.valueOf(response.body().size()));
                     showProgressBar("sds", "sdsd", false);
-                }else {
+                } else {
                     binding.tvTotalNotif.setText("0");
                     showProgressBar("sds", "sdsd", false);
 
@@ -184,17 +179,17 @@ public class AllProductFragment extends Fragment implements ProductAdapter.OnBut
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(getContext(), text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(getContext(), text, Toasty.LENGTH_SHORT).show();
         }
     }
 
     private void replace(Fragment fragment) {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameUsers, fragment).addToBackStack(null).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameUsers, fragment).addToBackStack(null).commit();
     }
 
     @Override

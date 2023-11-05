@@ -54,20 +54,20 @@ public class RegisterActivity extends AppCompatActivity {
                     etEmail.setError("Email Can not be empty");
                     etEmail.requestFocus();
 
-                }else  if (etNama.getText().toString().isEmpty()) {
+                } else if (etNama.getText().toString().isEmpty()) {
                     etNama.setError("Name Can not be empty");
                     etNama.requestFocus();
 
-                }else  if (etPass.getText().toString().isEmpty()) {
+                } else if (etPass.getText().toString().isEmpty()) {
                     etPass.setError("Password Can not be empty");
                     etPass.requestFocus();
-                }else  if (etPassKonfir.getText().toString().isEmpty()) {
+                } else if (etPassKonfir.getText().toString().isEmpty()) {
                     etPassKonfir.setError("Password Confirm Can not be empty");
                     etPassKonfir.requestFocus();
                 } else if (!etPass.getText().toString().equals(etPassKonfir.getText().toString())) {
                     etPassKonfir.setError("The password and confirmation password are not the same");
                     etPassKonfir.requestFocus();
-                }else {
+                } else {
                     simpanData();
                 }
             }
@@ -99,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();
 
-                }else {
+                } else {
                     showProgressBar("Sds", "Sdsd", false);
                     showToast("error", response.body().getMessage());
                 }
@@ -109,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onFailure(Call<ResponseModel> call, Throwable t) {
                 showProgressBar("Sds", "Sdsd", false);
                 showToast("error", "No internet connection");
-                Log.e("error", "onFailure: ", t );
+                Log.e("error", "onFailure: ", t);
 
             }
         });
@@ -135,10 +135,11 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
+
     private void showToast(String jenis, String text) {
         if (jenis.equals("success")) {
             Toasty.success(RegisterActivity.this, text, Toasty.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toasty.error(RegisterActivity.this, text, Toasty.LENGTH_SHORT).show();
         }
     }

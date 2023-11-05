@@ -166,7 +166,7 @@ public class DetailTransactionsFragment extends Fragment {
                                             String s = response.body().string();
                                             JSONObject object = new JSONObject(s);
                                             int responseCode = object.getInt("status");
-                                            if (responseCode==200){
+                                            if (responseCode == 200) {
                                                 showProgressBar("SD", "dsd", false);
                                                 Dialog dialog2 = new Dialog(getContext());
                                                 dialog2.setContentView(R.layout.layout_alert_successs);
@@ -186,8 +186,8 @@ public class DetailTransactionsFragment extends Fragment {
                                                 getActivity().getSupportFragmentManager().beginTransaction()
                                                         .replace(R.id.frameUsers, new TransactionsFragment()).commit();
 
-                                            }else {
-                                                showProgressBar("ds", "ds",false);
+                                            } else {
+                                                showProgressBar("ds", "ds", false);
                                                 showToast("error", object.getString("message"));
                                             }
 

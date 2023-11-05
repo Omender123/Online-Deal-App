@@ -35,7 +35,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Find the Best online deal app"
+                        android:text="Find the Best online Purchase App"
                         android:fontFamily="@font/popsem"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12ssp"/>
@@ -43,7 +43,7 @@
                     <androidx.appcompat.widget.SearchView
                         android:layout_width="match_parent"
                         android:layout_marginTop="@dimen/_5sdp"
-                        app:queryHint="Cari canvas"
+                        app:queryHint="Search"
                         android:id="@+id/searchBar"
                         app:iconifiedByDefault="false"
                         android:background="@drawable/container_searchview"
